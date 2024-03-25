@@ -1,0 +1,80 @@
+[
+    {
+      "bookId": 1,
+      "bookName": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "image": "https://i.ibb.co/Chb0FMx/beautiful-book-cover-mockup-23-2149152262.jpg",
+      "review": "A timeless classic depicting the roaring twenties and the elusive American Dream.",
+      "totalPages": 180,
+      "rating": 4.5,
+      "category": "Fiction",
+      "tags": ["Classic", "Literature", "Romance"],
+      "publisher": "Charles Scribner's Sons",
+      "yearOfPublishing": 1925
+    },
+    {
+      "bookId": 2,
+      "bookName": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "image": "https://i.ibb.co/qCC3W8M/beautiful-book-cover-mockup-23-2149152265.jpg",
+      "review": "A poignant portrayal of racial injustice and moral growth in a small Southern town.",
+      "totalPages": 324,
+      "rating": 4.8,
+      "category": "Fiction",
+      "tags": ["Classic", "Literature", "Legal Drama"],
+      "publisher": "J. B. Lippincott & Co.",
+      "yearOfPublishing": 1960
+    },
+    {
+      "bookId": 3,
+      "bookName": "1984",
+      "author": "George Orwell",
+      "image": "https://i.ibb.co/2j6dR9g/beautiful-book-cover-mockup-23-2149152261.jpg",
+      "review": "A chilling dystopian novel that explores the dangers of totalitarianism and surveillance.",
+      "totalPages": 328,
+      "rating": 4.6,
+      "category": "Fiction",
+      "tags": ["Dystopian", "Political", "Social Commentary"],
+      "publisher": "Secker & Warburg",
+      "yearOfPublishing": 1949
+    },
+    {
+      "bookId": 4,
+      "bookName": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "image": "https://i.ibb.co/G7q7vgm/beautiful-book-cover-mockup-23-2149152271.jpg",
+      "review": "A coming-of-age novel that captures the disillusionment and rebellion of adolescence.",
+      "totalPages": 224,
+      "rating": 4.3,
+      "category": "Fiction",
+      "tags": ["Classic", "Literature", "Young Adult"],
+      "publisher": "Little, Brown and Company",
+      "yearOfPublishing": 1951
+    },
+    {
+      "bookId": 5,
+      "bookName": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "image": "https://i.ibb.co/927dmsj/beautiful-book-cover-mockup-23-2149152256.jpg",
+      "review": "An enchanting adventure set in Middle-earth, filled with magic, dragons, and unexpected heroes.",
+      "totalPages": 310,
+      "rating": 4.7,
+      "category": "Fantasy",
+      "tags": ["Adventure", "Epic", "High Fantasy"],
+      "publisher": "Allen & Unwin",
+      "yearOfPublishing": 1937
+    },
+    {
+      "bookId": 6,
+      "bookName": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "image": "https://i.ibb.co/pr1yLxb/book.jpg",
+      "review": "A spellbinding start to the beloved series, introducing readers to the magical world of Hogwarts.",
+      "totalPages": 332,
+      "rating": 4.9,
+      "category": "Fantasy",
+      "tags": ["Magic", "Wizardry", "Adventure"],
+      "publisher": "Bloomsbury Publishing",
+      "yearOfPublishing": 1997
+    }
+  ]
