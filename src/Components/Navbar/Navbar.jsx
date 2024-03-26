@@ -8,8 +8,8 @@ const Navbar = () => {
         <>
             <li><NavLink className="border-2 border-green-400 text-green-400 font-bold bg-white" to="/">Home</NavLink></li>
             <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/listedBooks">Listed Books</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/jobs">Pages to Read</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/applied-jobs">Applied Jobs</NavLink></li>
+            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/rechart">Pages to Read</NavLink></li>
+            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/review">Review</NavLink></li>
             <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/blog">Blog</NavLink></li>
         </>
     );

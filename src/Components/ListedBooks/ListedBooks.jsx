@@ -1,9 +1,10 @@
-
-
+import { Outlet } from "react-router-dom";
 const ListedBooks = () => {
     return (
         <div>
-            <h1>This is listed Books</h1>
+                
+            <Outlet></Outlet>
+            
         </div>
     );
 };
