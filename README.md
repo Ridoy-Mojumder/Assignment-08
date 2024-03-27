@@ -1,4 +1,4 @@
-My web site name is Storyscape.
+My web site name is StoryScape.
 
 
 Here I am include five bullet points features and characteristics of my website:-
