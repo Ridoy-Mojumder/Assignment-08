@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import { getStoredBookRead } from '../../Utility/localStorage';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
@@ -22,7 +22,6 @@ const Rechart = () => {
   const [readBooks, setReadBooks] = useState([]);
   const books = useLoaderData();
   const [isLoading, setIsLoading] = useState(true);
-  console.log(books)
 
   useEffect(() => {
     const storedBooksId = getStoredBookRead();
@@ -30,41 +29,41 @@ const Rechart = () => {
     if (books && books.length > 0) {
       const filteredBooks = books.filter((book) => storedBooksId.includes(book.bookId));
       setReadBooks(filteredBooks);
-      setIsLoading(false); // Set loading to false after data is fetched
+      setIsLoading(false);
     }
   }, [books]);
-console.log(readBooks)
+
   if (isLoading) {
-    return <div>Loading...</div>; // Render a loading indicator while data is being fetched
+    return <div>Loading...</div>;
   }
 
   return (
-    <BarChart
-      width={1000}
-      height={500}
-      data={readBooks.map((book) => ({
-        name: book.bookName,
-        pages: book.totalPages,
-      }))}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Bar dataKey="pages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {readBooks.map((entry, index) => (
-          <Cell
-            key={`cell-${index}`}
-            fill={colors[index % colors.length]}
-          />
-        ))}
-      </Bar>
-    </BarChart>
+    <ResponsiveContainer width="100%" height={500}>
+      <BarChart
+        data={readBooks.map((book) => ({
+          name: book.bookName,
+          pages: book.totalPages,
+        }))}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Bar dataKey="pages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+          {readBooks.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={colors[index % colors.length]}
+            />
+          ))}
+        </Bar>
+      </BarChart>
+    </ResponsiveContainer>
   );
 };
 

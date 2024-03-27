@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { CiStar } from "react-icons/ci";
 import { Link } from 'react-router-dom';
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 const Book = ({ book }) => {
     const { bookId,bookName, author, image, totalPages, rating, category, tags } = book;
@@ -22,7 +23,7 @@ const Book = ({ book }) => {
             <h1 className="text-xl font-semibold mb-2">{bookName}</h1>
             <h2 className="text-gray-600 text-[16px] font-bold mb-2">Author: {author}</h2>
             <div className="flex justify-between mb-2">
-                <span className='flex'>Total Pages: {totalPages}</span>
+                <span className='text-gray-500 flex items-center gap-1'> <RiMoneyDollarCircleLine />Total Pages: {totalPages}</span>
                 <span className="text-gray-500 flex items-center gap-1">Rating: {rating}<CiStar className='text-xl'/></span>
 
             </div>

@@ -6,11 +6,11 @@ const Navbar = () => {
 
     const links = (
         <>
-            <li><NavLink className="border-2 border-green-400 text-green-400 font-bold bg-white" to="/">Home</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/listedBooks">Listed Books</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/rechart">Pages to Read</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/review">Review</NavLink></li>
-            <li><NavLink className="text-gray-800 hover:text-blue-500 font-bold" activeClassName="activeNavLink" to="/blog">Blog</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? 'border-2 border-green-400 bg-white font-bold' : 'text-green-400 font-bold'} activeClassName="activeNavLink"  to="/">Home</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? 'border-2 border-green-400 bg-white font-bold' : 'text-green-400 font-bold'}  to="/listedBooks" >Listed Books</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? 'border-2 border-green-400 bg-white font-bold' : 'text-green-400 font-bold'} to="/rechart">Pages to Read</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? 'border-2 border-green-400 bg-white font-bold' : 'text-green-400 font-bold'}to="/review">Review</NavLink></li>
+            <li><NavLink className={({isActive}) => isActive ? 'border-2 border-green-400 bg-white font-bold' : 'text-green-400 font-bold'}to="/blog">Blog</NavLink></li>
         </>
     );
 
@@ -28,7 +28,7 @@ const Navbar = () => {
                 <a className="btn btn-ghost font-bold text-2xl">Book Vibe</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-black">
                     {links}
                 </ul>
             </div>
@@ -36,9 +36,10 @@ const Navbar = () => {
                 <button className='p-4 text-white text-[14px] font-semibold rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-all duration-300 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 w-28'>
                     Sign In
                 </button>
-                <button className='p-4 text-white text-[14px] font-semibold rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition-all duration-300 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 w-28'>
+                <button className='p-4 text-white text-[14px] font-semibold rounded-md shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-300 bg-gradient-to-r from-blue-400 to-blue-500 hover:from-blue-500 hover:to-blue-600 w-28'>
                     Sign Up
                 </button>
+
             </div>
             <img src="/assets/images/bg2.png" alt="" className="absolute top-0 right-0 h-full max-h-full overflow-auto" />
         </div>

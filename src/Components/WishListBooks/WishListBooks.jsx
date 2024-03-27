@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredWishListBook } from "../../Utility/localStorageForWishList";
-import WishListBook from "../WishlistBook/WishlistBook";
+import WishListBook from "../WishListBook/WishListBook";
+
+
 
 const WishListBooks = () => {
     const [wishlistBooks, setWishlistBooks] = useState([]);
@@ -24,7 +26,7 @@ const WishListBooks = () => {
             <h1 className="text-2xl text-center p-12">This is wishlist book {wishlistBooks.length}</h1>
             <div>
                 {wishlistBooks.map(wishlistBook => (
-                    <WishListBook key={wishlistBook.bookId} wishlistBook={wishlistBook} />
+                    <WishListBook wishlistBook={wishlistBook} key={wishlistBook.bookId}></WishListBook>
                 ))}
             </div>
         </div>

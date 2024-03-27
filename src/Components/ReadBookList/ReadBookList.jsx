@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredBookRead } from "../../Utility/localStorage";
 import ReadBook from "../ReadBook/ReadBook";
-import WishListBooks from "../WishListBooks/WishListBooks";
+// import WishListBooks from "../WishListBooks/WishListBooks";
 
 const ReadBookList = () => {
     const [readBooks, setReadBooks] = useState([]);
@@ -27,7 +27,7 @@ const ReadBookList = () => {
             <div className="grid grid-cols-1 gap-7">
                 {readBooks.map(readBook => <ReadBook key={readBook.bookId} readBook={readBook}></ReadBook>)}
             </div>
-            <WishListBooks></WishListBooks>
+            {/* <WishListBooks></WishListBooks> */}
 
 
 

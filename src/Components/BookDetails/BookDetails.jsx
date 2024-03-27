@@ -55,7 +55,7 @@ const BookDetails = () => {
             <div className="text-center py-10">
                 <h1 className="text-4xl font-bold">Books Details</h1>
             </div>
-            <div className="grid grid-cols-2 gap-8 bg-white rounded-lg shadow-md p-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-md p-6">
                 <div className='justify-center items-center'>
                     <img src={image} alt={bookName} className="w-full h-full mb-4 rounded-md" />
                 </div>
