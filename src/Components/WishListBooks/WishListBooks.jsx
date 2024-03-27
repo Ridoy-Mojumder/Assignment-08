@@ -23,7 +23,7 @@ const WishListBooks = () => {
     
     return (
         <div>
-            <h1 className="text-2xl text-center p-12">This is wishlist book {wishlistBooks.length}</h1>
+            <h1 className="text-2xl text-center p-12">This is wishlist book </h1>
             <div>
                 {wishlistBooks.map(wishlistBook => (
                     <WishListBook wishlistBook={wishlistBook} key={wishlistBook.bookId}></WishListBook>

@@ -9,6 +9,7 @@ import Rechart from "../Components/Rechart/Rechart";
 import BookDetails from "../Components/BookDetails/BookDetails";
 import Blog from "../Components/Blog/Blog";
 import Review from "../Components/Review/Review";
+import { SelectedBookProvider } from "../Components/SelectedBookContext/SelectedBookContext ";
 
 export const router = createBrowserRouter([
   {
@@ -23,28 +24,35 @@ export const router = createBrowserRouter([
       {
         path: "/listedBooks",
         element: <ListedBooks />,
+        loader: () => fetch('../Books.json'), 
         children: [
           {
             index: true,
+            path: "", 
             element: <ReadBookList />,
-            loader: () => fetch('/Books.json')
+            loader: () => fetch('../Books.json') 
           },
           {
-            path: "wishlist", 
+            path: "wishlist",
             element: <WishListBooks />,
-            loader: () => fetch('/Books.json')
-          }
+            loader: () => fetch('../Books.json') 
+          },
+          {
+            path: "selectedBookProvider",
+            element: <SelectedBookProvider></SelectedBookProvider>,
+            loader: () => fetch('../Books.json') 
+          },
         ]
       },
       {
         path: "/rechart",
         element: <Rechart />,
-        loader: () => fetch('/Books.json')
+        loader: () => fetch('../Books.json') 
       },
       {
         path: "/book/:bookId",
         element: <BookDetails />,
-        loader: () => fetch('/Books.json')
+        loader: () => fetch('../Books.json') 
       },
       {
         path: "/blog",
