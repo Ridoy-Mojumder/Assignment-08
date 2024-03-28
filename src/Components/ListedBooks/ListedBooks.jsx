@@ -1,26 +1,82 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
+import { getStoredBookRead } from "../../Utility/localStorage";
+import { getStoredWishListBook } from "../../Utility/localStorageForWishList";
 
 const ListedBooks = () => {
     const [tabIndex, setTabIndex] = useState(0);
+
+
+    
+    const[datas,setDatas]=useState(getStoredBookRead);
+    const[wishlistData,setWishlistData]=useState(getStoredWishListBook);
+    console.log(wishlistData)
+    console.log(datas)
+    const[pages,setPages] =useState([])
+
+    // useEffect(() => {
+    //     let pages = datas.map( d => d.totalPages.substring(3));
+    //     setPages(pages)
+    //     console.log(pages)
+    // }, []);
+
+    const sortAscending = () => {
+        const sortAscPages = [...pages]
+        sortAscPages.sort((a, b) => a - b)    
+        setPages( sortAscPages )
+      }
+
+      const sortDescending = () => {
+        const sortDescPages = [...pages]
+        sortDescPages.sort((a, b) => a - b).reverse()
+        setPages( sortDescPages )
+    }
+
+
+
+    const[order, setOrder] = useState("ASC")
+    const handleShirting = (col) =>{
+        if( order === "ASC"){
+            const shorted = [...datas].short((a,b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
+            const shorted2 = [...wishlistData].short((a,b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
+            setDatas(shorted)
+            setWishlistData(shorted2)
+            setOrder("DSC")
+        }
+        if( order === "DSC"){
+            const shorted = [...datas].short((a,b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
+            const shorted2 = [...wishlistData].short((a,b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
+            setDatas(shorted)
+            setWishlistData(shorted2)
+            setOrder("ASC")
+        }
+    }
 
 
 
     // Example usage of useLoaderData()
 
     return (
-        <div>
-            {/* Dropdown for selecting book type */}
-            <div className="flex justify-center">
-                <details className="dropdown ">
-                    <summary className="m-1 btn bg-green-400 border-green-950 hover:bg-green-200 hover:text-gray-800 flex gap-1 ">Short <FaAngleDown /></summary>
-                    <ul className="p-2 shadow menu dropdown-content z-[1] bg-green-100 rounded-box w-52">
-                        <li className="bg-green-50 rounded-lg py-1 my-2"><a>Pages</a></li>
-                        <li className="bg-green-50 rounded-lg py-1 my-2"><a>Rating</a></li>
-                        <li className="bg-green-50 rounded-lg py-1 my-2"><a>Published Year</a></li>
-                    </ul>
-                </details>
+        <div>    
+                 
+
+
+            {/* Dropdown  */}
+
+            <div className="short-selection flex justify-center">
+                <form action="#">
+                    <label htmlFor="short"></label>
+                    <select name="short" id="short" className="bg-green-200 rounded-lg p-3 hover:bg-green-300" onClick={handleShirting}>
+                        <option value="#">Shorting <FaAngleDown /></option>
+                        <option value="#" disabled></option>
+                        <option value="pages" onClick={() => handleShirting('totalPages')} className="bg-green-50  ">Pages</option>
+                        <option value="#" disabled></option>
+                        <option value="rating" onClick={() => handleShirting('rating')} className="bg-green-50">Rating</option>
+                        <option value="#" disabled></option>
+                        <option value="pages" onClick={() => handleShirting('yearOfPublishing')} className="bg-green-50">Publishing Year</option>
+                    </select>
+                </form>
             </div>
 
             {/* Tabs */}
@@ -40,7 +96,7 @@ const ListedBooks = () => {
                 </Link>
             </div>
 
-            <Outlet />
+            <Outlet  sortingFunction={handleShirting} sortAsc={sortAscending}  sortDsc={sortDescending}/>
         </div>
     );
 };
