@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
 import { getStoredBookRead } from "../../Utility/localStorage";
@@ -8,12 +8,12 @@ const ListedBooks = () => {
     const [tabIndex, setTabIndex] = useState(0);
 
 
-    
-    const[datas,setDatas]=useState(getStoredBookRead);
-    const[wishlistData,setWishlistData]=useState(getStoredWishListBook);
+
+    const [datas, setDatas] = useState(getStoredBookRead);
+    const [wishlistData, setWishlistData] = useState(getStoredWishListBook);
     console.log(wishlistData)
     console.log(datas)
-    const[pages,setPages] =useState([])
+    const [pages, setPages] = useState([])
 
     // useEffect(() => {
     //     let pages = datas.map( d => d.totalPages.substring(3));
@@ -23,30 +23,30 @@ const ListedBooks = () => {
 
     const sortAscending = () => {
         const sortAscPages = [...pages]
-        sortAscPages.sort((a, b) => a - b)    
-        setPages( sortAscPages )
-      }
+        sortAscPages.sort((a, b) => a - b)
+        setPages(sortAscPages)
+    }
 
-      const sortDescending = () => {
+    const sortDescending = () => {
         const sortDescPages = [...pages]
         sortDescPages.sort((a, b) => a - b).reverse()
-        setPages( sortDescPages )
+        setPages(sortDescPages)
     }
 
 
 
-    const[order, setOrder] = useState("ASC")
-    const handleShirting = (col) =>{
-        if( order === "ASC"){
-            const shorted = [...datas].short((a,b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
-            const shorted2 = [...wishlistData].short((a,b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
+    const [order, setOrder] = useState("ASC")
+    const handleSorting = (col) => {
+        if (order === "ASC") {
+            const shorted = [...datas].short((a, b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
+            const shorted2 = [...wishlistData].short((a, b) => a[col].tolowercase() > b[col].tolowercase() ? 1 : -1)
             setDatas(shorted)
             setWishlistData(shorted2)
             setOrder("DSC")
         }
-        if( order === "DSC"){
-            const shorted = [...datas].short((a,b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
-            const shorted2 = [...wishlistData].short((a,b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
+        if (order === "DSC") {
+            const shorted = [...datas].short((a, b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
+            const shorted2 = [...wishlistData].short((a, b) => a[col].tolowercase() < b[col].tolowercase() ? 1 : -1)
             setDatas(shorted)
             setWishlistData(shorted2)
             setOrder("ASC")
@@ -58,23 +58,25 @@ const ListedBooks = () => {
     // Example usage of useLoaderData()
 
     return (
-        <div>    
-                 
+        <div>
 
+            <div className="text-center py-10">
+                <h1 className="text-4xl font-bold">Listed Books</h1>
+            </div>
 
             {/* Dropdown  */}
 
             <div className="short-selection flex justify-center">
                 <form action="#">
                     <label htmlFor="short"></label>
-                    <select name="short" id="short" className="bg-green-200 rounded-lg p-3 hover:bg-green-300" onClick={handleShirting}>
+                    <select name="short" id="short" className="bg-green-200 rounded-lg p-3 hover:bg-green-300" onClick={handleSorting}>
                         <option value="#">Shorting <FaAngleDown /></option>
                         <option value="#" disabled></option>
-                        <option value="pages" onClick={() => handleShirting('totalPages')} className="bg-green-50  ">Pages</option>
+                        <option value="pages" onClick={() => handleSorting('totalPages')} className="bg-green-50  ">Pages</option>
                         <option value="#" disabled></option>
-                        <option value="rating" onClick={() => handleShirting('rating')} className="bg-green-50">Rating</option>
+                        <option value="rating" onClick={() => handleSorting('rating')} className="bg-green-50">Rating</option>
                         <option value="#" disabled></option>
-                        <option value="pages" onClick={() => handleShirting('yearOfPublishing')} className="bg-green-50">Publishing Year</option>
+                        <option value="pages" onClick={() => handleSorting('yearOfPublishing')} className="bg-green-50">Publishing Year</option>
                     </select>
                 </form>
             </div>
@@ -96,7 +98,7 @@ const ListedBooks = () => {
                 </Link>
             </div>
 
-            <Outlet  sortingFunction={handleShirting} sortAsc={sortAscending}  sortDsc={sortDescending}/>
+            <Outlet sortingFunction={handleSorting} sortAsc={sortAscending} sortDsc={sortDescending} />
         </div>
     );
 };

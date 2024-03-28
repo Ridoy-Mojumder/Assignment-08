@@ -38,7 +38,11 @@ const Rechart = () => {
   }
 
   return (
-    <ResponsiveContainer width="100%" height={500}>
+    <div>
+      <div className="text-center py-10">
+                <h1 className="text-4xl font-bold">Rechart Here The Red Books</h1>
+            </div>
+      <ResponsiveContainer width="100%" height={500}>
       <BarChart
         data={readBooks.map((book) => ({
           name: book.bookName,
@@ -64,6 +68,7 @@ const Rechart = () => {
         </Bar>
       </BarChart>
     </ResponsiveContainer>
+    </div>
   );
 };
 
